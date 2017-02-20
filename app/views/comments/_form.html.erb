@@ -1,0 +1,7 @@
+<%= form_for [question, @comment], remote: true do |f| %>
+  <%= f.text_area :content, class: 'materialize-textarea', placeholder: "Enter Comment"%>
+
+  <br>
+
+  <%= f.submit class: 'btn' %>
+<% end %>

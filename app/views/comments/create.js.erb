@@ -1,0 +1,2 @@
+$('.question_<%= @question.id %> .comment_text').val("");
+$('.question_<%= @question.id %> .comments').append('<%= j render(@comment) %>');

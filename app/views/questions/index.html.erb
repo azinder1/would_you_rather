@@ -6,6 +6,7 @@
 
   <% @questions.each do |question| %>
     <div class="question">
+      <%= content_tag :div , class: "question_" + question.id.to_s do %>
       <%= link_to(question_path(question)) do %>
       <div class="row">
         <% if current_user  %>
@@ -24,20 +25,21 @@
           </div>
       <% end %>
       <div class="col s4">
-        <% if question.comments.any? %>
+
         <div class="comments">
           <% question.comments.each do |r| %>
-          <ul>
-            <li><%= r.uses.email %>--<%= r.content %></li>
-          </ul>
+            <p><%= r.user.email %>--<%= r.content %></p>
           <% end %>
         </div>
-        <% else %>
-        <h5>There are no comments yet for this question</h5>
+        <br>
+        <%= form_for [question, @comment],remote: true do |f| %>
+          <%= f.text_field :content, class: "comment_text",placeholder: "Enter Comment"%>
+          <%= f.submit class: 'btn' %>
         <% end %>
       </div>
     </div>
     </div>
   <div class="divider">
   </div>
+  <% end %>
 <% end %>
