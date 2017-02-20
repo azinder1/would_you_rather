@@ -1,1 +1,43 @@
-<h1>test</h1>
+
+<div class="section">
+  <h1 class="center-align thin">All Questions</h1>
+</div>
+
+
+  <% @questions.each do |question| %>
+    <div class="question">
+      <%= link_to(question_path(question)) do %>
+      <div class="row">
+        <% if current_user  %>
+          <% if current_user.id == question.user.id %>
+          <%= link_to "Edit", edit_question_path(question) %> |
+          <%= link_to "Delete", question_path(question), :data => {:confirm => "Are you sure that you want to delete your question?", method: 'delete' } %>
+          <% end %>
+        <% end %>
+      </div>
+        <div class="row">
+          <div class="col s4">
+            <h5 class="black-text center">  <%= question.option1 %>  </h5>
+          </div>
+          <div class="col s4">
+            <h5 class="black-text center">  <%= question.option2 %>  </h5>
+          </div>
+      <% end %>
+      <div class="col s4">
+        <% if question.comments.any? %>
+        <div class="comments">
+          <% question.comments.each do |r| %>
+          <ul>
+            <li><%= r.uses.email %>--<%= r.content %></li>
+          </ul>
+          <% end %>
+        </div>
+        <% else %>
+        <h5>There are no comments yet for this question</h5>
+        <% end %>
+      </div>
+    </div>
+    </div>
+  <div class="divider">
+  </div>
+<% end %>

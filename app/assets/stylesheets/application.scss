@@ -2,3 +2,12 @@
 $primary-color: color("grey", "darken-4") !default;
 $secondary-color: color("grey", "darken-4") !default;
 @import 'materialize';
+
+.comments {
+  overflow: scroll;
+  height: 200px;
+}
+
+.question {
+  height: 350px;
+}
