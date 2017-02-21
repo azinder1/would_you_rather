@@ -7,7 +7,7 @@
   <% @questions.each do |question| %>
     <div class="question">
       <%= content_tag :div , class: "question_" + question.id.to_s do %>
-    
+
       <div class="row">
         <% if current_user  %>
           <% if current_user.id == question.user.id %>
@@ -17,17 +17,22 @@
         <% end %>
       </div>
         <div class="row">
-          <div class="col s4">
+          <div class="col s3">
             <h5 class="black-text center">  <%=  link_to question.option1, question_responses_path(question, option1: true), method: 'post', remote: true %>  </h5>
-            <p class = "response_1">
-              Total responses: <%= question.get_option1_total%>
-            </p>
+            <%= image_tag question.option1_photo.url(:medium) %>
           </div>
-          <div class="col s4">
+          <div class="col s2">
+            <h3 class="center">OR</h3>
+            <div class="barchart">
+              <span class = "response_1 left"><%= question.get_option1_total%>%</span>
+              <span class = "response_2 right"><%= question.get_option2_total%>%</span>
+            <%= content_tag :div , class: 'option1_div', style: 'width: ' + (question.get_option1_total.to_s).concat('%;') do %>
+            <% end %>
+            </div>
+          </div>
+          <div class="col s3">
             <h5 class="black-text center">  <%=  link_to question.option2, question_responses_path(question, option1: false), method: 'post', remote: true   %>  </h5>
-            <p class = "response_2">
-              Total responses: <%= question.get_option2_total%>
-            </p>
+            <%= image_tag question.option2_photo.url(:medium) %>
           </div>
 
       <div class="col s4">

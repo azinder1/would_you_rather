@@ -12,3 +12,20 @@ $secondary-color: color("grey", "darken-4") !default;
   height: 350px;
   margin: 30px 0px 30px 0px
 }
+
+.barchart {
+  width: 120px;
+  height: 30px;
+  background-color: blue;
+  z-index: 1;
+  border-radius: 5px;
+  color: white;
+  font-size: 15px;
+}
+
+.option1_div {
+  z-index: 2;
+  background-color: red;
+  height: 30px;
+  border-radius: 5px 0px 0px 5px;
+}

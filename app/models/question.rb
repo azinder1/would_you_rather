@@ -5,6 +5,13 @@ class Question < ActiveRecord::Base
   has_many :responses
   belongs_to :user
 
+  has_attached_file :option1_photo, styles: { medium: "200x200#", thumb: "100x100#" }, default_url: "/images/:style/missing.png"
+  validates_attachment_content_type :option1_photo, content_type: /\Aimage\/.*\z/
+
+  has_attached_file :option2_photo, styles: { medium: "200x200#", thumb: "100x100#" }, default_url: "/images/:style/missing.png"
+  validates_attachment_content_type :option2_photo, content_type: /\Aimage\/.*\z/
+
+
   def get_option1_total
     responses = Response.where(question_id: self.id)
     option1_total = 0

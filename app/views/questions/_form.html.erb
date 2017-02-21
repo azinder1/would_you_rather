@@ -1,7 +1,17 @@
 <%= form_for @question do |f| %>
   <%= f.label :option1 %>
   <%= f.text_area :option1 %>
+  <%= f.label :option1_photo %>
+  <%= f.file_field :option1_photo %>
+  <br>
+  <br>
+
   <%= f.label :option2 %>
   <%= f.text_area :option2 %>
+  <%= f.label :option2_photo %>
+  <%= f.file_field :option2_photo %>
+  <br>
+  <br>
+
   <%= f.submit %>
 <% end %>

@@ -48,6 +48,6 @@ class QuestionsController < ApplicationController
 
   private
     def question_params
-      params.require(:question).permit(:option1, :option2)
+      params.require(:question).permit(:option1, :option2, :option1_photo, :option2_photo)
     end
 end
