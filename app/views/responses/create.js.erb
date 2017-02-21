@@ -1,0 +1,4 @@
+$('.question_<%= @question.id %> .response_1').text("")
+$('.question_<%= @question.id %> .response_2').text("")
+$('.question_<%= @question.id %> .response_1').append('Total responses: <%= @question.get_option1_total %>');
+$('.question_<%= @question.id %> .response_2').append('Total responses: <%= @question.get_option2_total %>');
