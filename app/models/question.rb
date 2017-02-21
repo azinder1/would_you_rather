@@ -13,7 +13,11 @@ class Question < ActiveRecord::Base
         option1_total += 1
       end
     end
-    return option1_total
+    if responses.length == 0
+      return 0
+    else
+      return (100 * option1_total/(responses.length))
+    end
   end
 
   def get_option2_total
@@ -24,6 +28,10 @@ class Question < ActiveRecord::Base
         option2_total += 1
       end
     end
-    return option2_total
+    if responses.length == 0
+      return 0
+    else
+      return (100 * option2_total/(responses.length))
+    end
   end
 end

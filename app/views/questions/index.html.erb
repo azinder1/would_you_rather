@@ -7,7 +7,7 @@
   <% @questions.each do |question| %>
     <div class="question">
       <%= content_tag :div , class: "question_" + question.id.to_s do %>
-      <%= link_to(question_path(question)) do %>
+    
       <div class="row">
         <% if current_user  %>
           <% if current_user.id == question.user.id %>
@@ -18,7 +18,7 @@
       </div>
         <div class="row">
           <div class="col s4">
-            <h5 class="black-text center">  <%=  link_to question.option1, question_responses_path(question, option1: true), method: 'post', remote: true   %>  </h5>
+            <h5 class="black-text center">  <%=  link_to question.option1, question_responses_path(question, option1: true), method: 'post', remote: true %>  </h5>
             <p class = "response_1">
               Total responses: <%= question.get_option1_total%>
             </p>
@@ -29,7 +29,7 @@
               Total responses: <%= question.get_option2_total%>
             </p>
           </div>
-      <% end %>
+
       <div class="col s4">
 
         <div class="comments">
