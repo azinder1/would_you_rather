@@ -1,7 +1,5 @@
 $('.question_<%= @question.id %> .option1_div').attr('style', 'width: <%= @question.get_option1_total.to_s %>%;');
-// $('.question_<%= @question.id %> .barchart').append("<%= content_tag :div, class: 'option1_div', style: 'width: ' +(@question.get_option1_total.to_s).concat('%;') do %><% end %>");
 
-$('.question_<%= @question.id %> .response_1').text("")
-$('.question_<%= @question.id %> .response_2').text("")
-$('.question_<%= @question.id %> .response_1').append('<%= @question.get_option1_total %>%');
-$('.question_<%= @question.id %> .response_2').append('<%= @question.get_option2_total %>%');
+$('.question_<%= @question.id %> .response_1').text('<%= @question.get_option1_total %>%');
+$('.question_<%= @question.id %> .response_2').text('<%= @question.get_option2_total %>%');
+$('.question_<%= @question.id %> .total_responses').text('Total: <%= @question.responses.length %>')

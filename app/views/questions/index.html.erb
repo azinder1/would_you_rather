@@ -29,6 +29,9 @@
             <%= content_tag :div , class: 'option1_div', style: 'width: ' + (question.get_option1_total.to_s).concat('%;') do %>
             <% end %>
             </div>
+            <p class = "total_responses">
+              Total: <%= question.responses.length %>
+            </p>
           </div>
           <div class="col s3">
             <h5 class="black-text center">  <%=  link_to question.option2, question_responses_path(question, option1: false), method: 'post', remote: true   %>  </h5>

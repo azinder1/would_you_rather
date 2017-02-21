@@ -6,10 +6,10 @@ class ResponsesController < ApplicationController
     @response[:user_id] = @user.id
     @response[:question_id] = @question.id
     @response[:option1] = params[:option1]
-    if @response.save
-      respond_to do |format|
-        format.html {redirect_to root_path}
-        format.js
+      if @response.save
+        respond_to do |format|
+          format.html {redirect_to root_path}
+          format.js
       end
     end
   end
