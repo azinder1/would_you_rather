@@ -4,10 +4,22 @@
   <div class="graph_stuff">
     <h5>Here are your current stats:</h5>
     <%= pie_chart @user.responses.group(:option1).count %>
+    <% current_user.questions.each do |question| %>
+    <div class="">
+      <p>
+        <%= question.option1 %> or
+        <%= question.option2 %> 
+      </p>
+    </div>
+    <% end %>
   </div>
   <% else %>
   <div class="graph_stuff">
     <h5>Here are your current stats:</h5>
     <%= pie_chart current_user.responses.group(:option1).count %>
   </div>
+  <% current_user.responses.questions.each do |question| %>
+    <%= question.option1 %>
+    <%= question.option2 %>
+  <% end %>
 <% end %>
